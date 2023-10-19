@@ -27,7 +27,11 @@ app.get("/api", async (req, res) => {
 
       // Navigate the page to a URL
 
-      await page.goto(URL);
+      await page.goto(URL, {
+        waitUntil: "load",
+        // Remove the timeout
+        timeout: 0,
+      });
 
       await page.setViewport({ width: 1800, height: 1800 });
 
